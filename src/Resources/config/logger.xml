@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="jcid.simple.bus.logger.class">Jcid\SimpleBusLogBridge\MessageBus\MessageBusMiddleware</parameter>
+    </parameters>
+
+    <services>
+        <service id="jcid.simple.bus.logger" class="%jcid.simple.bus.logger.class%" public="false">
+            <tag name="command_bus_middleware" priority="-999" />
+            <tag name="event_bus_middleware" priority="-999" />
+            <argument type="service" id="logger" />
+            <argument>%kernel.debug%</argument>
+            <argument>%kernel.debug%</argument>
+        </service>
+    </services>
+</container>
