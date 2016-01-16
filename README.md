@@ -1,3 +1,0 @@
-# SimpleBusLogBridgeBundle
-
-TODO
